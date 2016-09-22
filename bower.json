@@ -1,0 +1,21 @@
+{
+  "name": "Mean Messages",
+  "description": "Not mean messages",
+  "main": "server.js",
+  "license": "ISC",
+  "homepage": "https://github.com/davidhorst/event-viewer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "jquery": "^3.1.0",
+    "materialize": "^0.97.7",
+    "angular-route": "^1.5.8"
+  }
+}

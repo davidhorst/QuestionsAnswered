@@ -1,0 +1,14 @@
+<div ng-controller="usersController">
+  <div class="row">
+    <table>
+      <thead>
+        <th>User Name</th>
+      </thead>
+      <tbody ng-repeat="user in users">
+        <tr>
+          <td>{{user.username}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
