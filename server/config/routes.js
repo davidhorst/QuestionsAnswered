@@ -1,6 +1,6 @@
 // require controllers
 var accounts = require('./../controllers/accounts.js'),
-    messages = require('./../controllers/messages.js');
+    questions = require('./../controllers/questions.js');
 
 // define routes
 module.exports = function(app){
@@ -8,7 +8,13 @@ module.exports = function(app){
   app.get('/users', accounts.index);
   app.post('/login', accounts.login);
   // Dashboard Routes
-  app.get('/messages', messages.index);
-  app.post('/messages', messages.createMessage);
-  app.post('/messages/:id', messages.createComment);
+  app.get('/questions', questions.index);
+  // Show/add answers
+  app.post('/questions/:id', questions.createAnswer);
+  app.get('/questions/:id', questions.showQuestion);
+  // Show/Add questions
+  app.post('/questions', questions.createQuestion);
+  app.get('/questions/:id/answer', questions.showQuestion);
+  // like answer
+  app.post('/answers/:id', questions.likeAnswer);
 };

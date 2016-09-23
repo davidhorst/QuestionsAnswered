@@ -1,6 +1,6 @@
 {
-  "name": "Mean Messages",
-  "description": "Not mean messages",
+  "name": "mean exam",
+  "description": "not mean messages",
   "main": "server.js",
   "license": "ISC",
   "homepage": "https://github.com/davidhorst/event-viewer",

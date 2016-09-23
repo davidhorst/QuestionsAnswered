@@ -8,6 +8,7 @@ var UserSchema = new Schema({
     type: String,
     required: [true, "An username is required"],
     unique: true,
+    minlength: 1,
     },
   }, {timestamps: true});
 

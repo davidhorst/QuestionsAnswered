@@ -13,7 +13,7 @@ app.controller('usersController', ['$scope','$cookies','usersFactory', '$locatio
   getUsers();
 
   this.delete = function(id){
-    
+
   }; //end this.delete
 
 

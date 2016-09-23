@@ -18,27 +18,25 @@ function AccountsController(){
   this.login = function(req, res){
     // req.body === user object
     User.findOne( req.body , function(err, user){
-      if ( err ) {
-        // error on find
+      console.log(err, user);
+      if (err) {
         res.json({err: err, success: null});
       } else {
         if (!user) {
-        // find success - no user found
-            User.create(req.body, function(err, user){
-              if (err){
-                // user creation failed, return error
-                res.json({err: err, success: null});
-              } else {
-                // user creation successful, return user
-                res.json({err: null, success: user});
-              };
-            });
+          user = new User(req.body)
+          user.save(function(err, success){
+            console.log(err, success)
+            if (err) {
+              res.json({err: err, success: null});
+            } else {
+              res.json({err: null, success: user});
+            }; // end user save error catch
+          }); // end user save process
         } else {
-          // user found
-          res.json({err: null, success: user});
-        };
-      };
-    });
+          res.json({err: null, success: user });
+        }; // end no user found error catch
+      }; // end find user error catch
+    }); // end find exisiting user
   }; // End this.login
 
 }; // End AccountsController

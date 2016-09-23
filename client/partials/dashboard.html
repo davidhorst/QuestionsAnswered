@@ -1,39 +1,36 @@
 <div ng-controller='dashboardController'>
   <div class="row">
-    <h4 class="align left">Full Mean Wall</h4>
-    <div class="input-field">
-      <a class="align right waves-effect waves-light btn" ng-click="logout();" >Logout</a>
-    </div>
-    <div class="text">
-      <h5 class="align right" ng-show="username">Welcome, {{username}} </h5>
-    </div>
-
+    <h4 class="align left" ng-show="username">Hi {{username}}!</h4>
+    <a href class="align right" ng-click="logout();">Logout</a>
   </div>
   <div class="row">
-    <hr/>
+    <a href="/#/question">Ask a question</a>
   </div>
   <div class="row"> <!-- Post Creation -->
-    <h6>Post a message</h6>
-    <form>
-      <textarea ng-model="message.content" name="post"></textarea>
-      <button class="align right waves-effect waves-light btn" ng-click="createMessage();">Post a message</button>
+    <form class="col s5 align right">
+      <div class="input-field">
+        <label for="search">Search: </label>
+        <input type="text" name="search" ng-model="search">
+      </div>
     </form>
-  </div><!-- end post creation -->
-  <div class="row"><!-- Posts list -->
-    <div ng-repeat="message in messages">
-      <h6><b>{{message._user.username}} - {{ message.createdAt | date: 'short'}} </b> </h6>
-      <p>{{ message.content }}</p>
-      <div class="col s11 offset-s1" ng-repeat="comment in message._comments">
-        <h6><b>{{comment._user.username}} - {{ comment.createdAt | date: 'short'}} </b> </h6>
-        <p>{{ comment.content }}</p>
-      </div>
-      <div class="col s11 offset-s1">
-        <h6>Post a comment</h6>
-        <form>
-          <textarea ng-model="comment[$index]" name="comment"></textarea>
-          <a class="align right waves-effect waves-light btn" ng-click="createComment(message._id, $index);">Post a comment</a>
-        </form>
-      </div>
-    </div>
-  </div> <!-- end posts list -->
+  </div>
+  <div class="row"><!-- Questions list -->
+    <table>
+      <thead>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Action</th>
+      </thead>
+      <tbody ng-repeat="question in questions">
+        <tr>
+          <td>{{ question.question }}</td>
+          <td>{{ question._answers.length }}</td>
+          <td>
+            <a href='/#/questions/{{ question._id }}'>show</a> |
+            <a href="/#/questions/{{ question._id }}/answer">Answer</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <!-- end questions list -->
 </div>

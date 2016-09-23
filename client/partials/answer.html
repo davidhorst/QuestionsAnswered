@@ -1,0 +1,30 @@
+<div ng-controller='answersController'>
+  <div class="row">
+    <a href="/#/dashboard">Home</a> |
+    <a href="/#/question/{{ question._id }}">Go back to question</a>
+    <a href class="align right" ng-click="logout();">Logout</a>
+  </div>
+  <div class="row" ng-show="question">
+    <h3>{{ question.question }}</h3>
+    <h5>{{ question.description }}</h5>
+  </div>
+  <div class="row" ng-show="question">
+    <form name="answers" class="col s6">
+      <div class="input-field">
+        <label for="answer">Answer</label>
+        <textarea id="answer" name="answer" ng-model="answer.answer"></textarea>
+        <span ng-show="error"><p>{{ error }}</p></span>
+      </div>
+      <div class="input-field">
+        <label for="details">Supporting Details for your answer (optional)</label>
+        <textarea id="details" name="details" ng-model="answer.details"></textarea>
+      </div>
+      <div class="input-field">
+        <a class="waves-effect waves-light btn align right" ng-click="createAnswer();">Submit</a>
+      </div>
+      <div class="input-field">
+        <a href="/#/dashboard" class="waves-effect waves-light btn align right" >Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

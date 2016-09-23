@@ -1,0 +1,28 @@
+<div ng-controller='questionsController'>
+  <div class="row">
+    <a href="/#/dashboard" class="align left">Home</a>
+    <a href ng-click="logout();" class="align right">Logout</a>
+  </div>
+  <div class="row">
+    <h3>New Question</h3>
+  </div>
+  <div class="row">
+    <form name="questions" class="col s6">
+      <div class="input-field">
+        <label for="question">Question</label>
+        <textarea id="question" name="question" ng-model="question.question"></textarea>
+        <span ng-show="error"><p>{{ error }}</p></span>
+      </div>
+      <div class="input-field">
+        <label for="description">Description (optional)</label>
+        <textarea id="description" name="description" ng-model="question.description"></textarea>
+      </div>
+      <div class="input-field">
+        <a class="waves-effect waves-light btn align right" ng-click="createQuestion();">Submit</a>
+      </div>
+      <div class="input-field">
+        <a href="/#/dashboard" class="waves-effect waves-light btn align right" >Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

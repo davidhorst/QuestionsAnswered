@@ -8,6 +8,15 @@ app.config(function ($routeProvider) {
     .when('/dashboard',{
           templateUrl: 'partials/dashboard.html'
       })
+    .when('/question',{
+          templateUrl: 'partials/question.html'
+      })
+    .when('/questions/:id',{
+          templateUrl: 'partials/showquestion.html'
+      })
+    .when('/questions/:id/answer',{
+          templateUrl: 'partials/answer.html'
+      })
     .when('/users',{
           templateUrl: 'partials/users.html'
       })

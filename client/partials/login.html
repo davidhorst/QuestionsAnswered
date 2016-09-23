@@ -5,6 +5,7 @@
           <div class="input-field col s12">
             <input id="username" type="text" ng-model="user.username">
             <label for="username">Username: </label>
+            <span ng-show="error"><p>{{ error }}</p></span>
           </div>
           <div class="input-field col s12">
             <a class="waves-effect waves-light btn" ng-click="login();" >Login</a>
